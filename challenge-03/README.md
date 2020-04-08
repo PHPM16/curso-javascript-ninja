@@ -72,65 +72,69 @@ Agora vamos brincar um pouco com o objeto criado:
 Qual o nome completo da pessoa? (Use a instrução para responder e comentários
 inline ao lado da instrução para mostrar qual foi a resposta retornada)
 */
-?
+?pessoa.nomeCompleto()
 
 /*
 Qual a idade da pessoa? (Use a instrução para responder e comentários
 inline ao lado da instrução para mostrar qual foi a resposta retornada)
-*/
+*/pessoa.mostrarIdade()
 ?
 
 /*
 Qual o peso da pessoa? (Use a instrução para responder e comentários
 inline ao lado da instrução para mostrar qual foi a resposta retornada)
-*/
+*/pessoa.mostrarPeso()
 ?
 
 /*
 Qual a altura da pessoa? (Use a instrução para responder e comentários
 inline ao lado da instrução para mostrar qual foi a resposta retornada)
-*/
+*/pessoa.mostrarAltura()
 ?
 
 /*
 Faça a `pessoa` fazer 3 aniversários.
-*/
+*/  pessoa.fazerAniversario()
+    pessoa.fazerAniversario()
+    pessoa.fazerAniversario()
 ?
 
 /*
 Quantos anos a `pessoa` tem agora? (Use a instrução para responder e
 comentários inline ao lado da instrução para mostrar qual foi a resposta
 retornada)
-*/
+*/pessoa.idade
 ?
 
 /*
 Agora, faça a `pessoa` caminhar alguns metros, invocando o método `andar` 3x,
 com metragens diferentes passadas por parâmetro.
-*/
+*/  pessoa.andar(5)
+    pessoa.andar(8)
+    pessoa.andar(3)
 ?
 
 /*
 A pessoa ainda está andando? (Use a instrução para responder e comentários
 inline ao lado da instrução para mostrar qual foi a resposta retornada)
-*/
+*/pessoa.andando
 ?
 
 /*
 Se a pessoa ainda está andando, faça-a parar.
-*/
+*/pessoa.parar()
 ?
 
 /*
 E agora: a pessoa ainda está andando? (Use uma instrução para responder e
 comentários inline ao lado da instrução para mostrar a resposta retornada)
-*/
+*/pessoa.andando
 ?
 
 /*
 Quantos metros a pessoa andou? (Use uma instrução para responder e comentários
 inline ao lado da instrução para mostrar a resposta retornada)
-*/
+*/pessoa.caminhouQuantosMetros
 ?
 
 /*
