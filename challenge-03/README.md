@@ -103,7 +103,7 @@ Faça a `pessoa` fazer 3 aniversários.
 Quantos anos a `pessoa` tem agora? (Use a instrução para responder e
 comentários inline ao lado da instrução para mostrar qual foi a resposta
 retornada)
-*/pessoa.idade
+*/pessoa.mostrarIdade()
 ?
 
 /*

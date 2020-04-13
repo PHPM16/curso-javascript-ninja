@@ -1,9 +1,9 @@
-let firstVar = {}
+let firstVar = {};
 console.log(firstVar)
 let pessoa = {
     nome: 'Lincoln',
     sobrenome: 'Alexandrino',
-    sexo: 'Masculino',
+    sexo: 'Feminino',
     idade: 25,
     altura: 1.68,
     peso: 60,
@@ -11,7 +11,7 @@ let pessoa = {
     caminhouQuantosMetros: 0,
 }
 
-pessoa.fazerAniversario = () => pessoa.idade++
+pessoa.fazerAniversario = () => pessoa.idade++;
 
 pessoa.andar = (metros) => {
     if(pessoa.caminhouQuantosMetros === 1){
@@ -22,7 +22,7 @@ pessoa.andar = (metros) => {
 
     pessoa.caminhouQuantosMetros += metros
     pessoa.andando = true
-}
+};
 
 pessoa.parar = () => pessoa.andando = false
 
@@ -33,10 +33,10 @@ pessoa.parar()
 
 pessoa.nomeCompleto = () => {
     if(pessoa.sexo.toLowerCase() === 'feminino'){
-        `Olá! eu sou a ${pessoa.nome} ${pessoa.sobrenome}`
+        `Olá! eu sou a ${pessoa.nome} ${pessoa.sobrenome}!`
     }
     else{
-        `Olá! eu sou o ${pessoa.nome} ${pessoa.sobrenome}`
+        `Olá! eu sou o ${pessoa.nome} ${pessoa.sobrenome}!`
     }
 }
 pessoa.nomeCompleto()
@@ -59,33 +59,27 @@ pessoa.mostrarAltura()
 
 
 pessoa.apresentacao = function(){
-    let nomeCompleto;
+    let nomeCompleto = `Olá eu sou o ${pessoa.nome} ${pessoa.sobrenome}`;
     
         if(pessoa.sexo.toLowerCase() === 'feminino'){
            nomeCompleto = `Olá eu sou a ${pessoa.nome} ${pessoa.sobrenome}`
         }
-        else{
-         nomeCompleto = `Olá eu sou o ${pessoa.nome} ${pessoa.sobrenome}`
-        }
 
-        let idade;
+        let idade = `tenho ${pessoa.idade} anos`;
             if(pessoa.idade === 1){
                 idade = `tenho ${pessoa.idade} ano`
             }
-            else{
-                idade = `tenho ${pessoa.idade} anos`
-            }
 
-        let metro;
+        let metro = `eu já caminhei ${pessoa.caminhouQuantosMetros} metros!`;
             if(pessoa.caminhouQuantosMetros === 1){
                 metro = `eu já caminhei ${pessoa.caminhouQuantosMetros} metro!`
-            }
-            else{
-                metro = `eu já caminhei ${pessoa.caminhouQuantosMetros} metros!`
             }
 
         return `${nomeCompleto}, ${idade}, ${pessoa.altura}, meu peso é ${pessoa.peso} e, só hoje, ${metro}`
 
 }
+
+pessoa.andar(120)
+pessoa.parar()
 
 console.log(pessoa.apresentacao())
