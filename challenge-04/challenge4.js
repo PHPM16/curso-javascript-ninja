@@ -27,17 +27,24 @@ carro.obterMarcaModelo = () => `Esse carro é um ${carro.obterMarca()} ${carro.o
 carro.acrescentarPessoas =  function(pessoa){
     carro.quantidadePessoas += pessoa;
     let quantasPessoasCabem = carro.assentos - carro.quantidadePessoas;
-    if(carro.assentos <= carro.quantidadePessoas){
+    let pluralOuSingular = quantasPessoasCabem === 1? 'pessoa':'pessoas';
+    if(carro.assentos === carro.quantidadePessoas){
         return `O carro já está lotado`
     }
-    let pluralOuSingular = quantasPessoasCabem === 1? 'pessoa':'pessoas';
-    if(carro.assentos > carro.quantidadePessoas){
-        return `Só cabem ${carro.assentos-carro.quantidadePessoas} ${pluralOuSingular}`
+    else if(carro.quantidadePessoas > 0 && carro.assentos > carro.quantidadePessoas){
+        return `Só cabem ${quantasPessoasCabem} ${pluralOuSingular}`
     }
-    return `Já temos ${carro.quantidadePessoas} pessoas no carro!`
-}
 
-console.log(carro.acrescentarPessoas(4))
+    return `O carro está vazio`
+ }
+
+
+console.log(carro.acrescentarPessoas(0))
+console.log(carro.acrescentarPessoas(2))
+console.log(carro.acrescentarPessoas(3))
+console.log(carro.acrescentarPessoas(-3))
+
+console.log(carro.quantidadePessoas)
 
 
 
