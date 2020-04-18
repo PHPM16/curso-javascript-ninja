@@ -6,6 +6,8 @@ e imprima o nome desse campeonato no console.
 */
 // ?
 
+let championship = 'Campeonato Carioca'
+
 /*
 Declare uma variável chamada `teams`, que receberá um array com 5 elementos.
 Os elementos serão nomes de times do campeonato escolhido, e os nomes devem
@@ -14,7 +16,10 @@ desafio.
 */
 // ?
 
+let teams = [ ,'Flamengo', 'Fluminense', 'Botafogo', 'Vasco', 'Boavista']
+
 console.log( 'Times que estão participando do campeonato:', teams );
+
 
 /*
 Crie uma função chamada `showTeamPosition` com as seguintes características:
@@ -33,18 +38,35 @@ Crie uma função chamada `showTeamPosition` com as seguintes características:
     "Não temos a informação do time que está nessa posição."
 */
 // ?
+    let showTeamPosition = (pos) =>{
+        console.log(`O time que está em ${pos}º lugar é o ${teams[pos]}`)
+    }
 
+    showTeamPosition(1)
 /*
 Escolha 4 times do campeonato selecionado e mostre a posição dele, usando a
 função acima. Entre esses 4, adicione 1 que não esteja entre os 5 primeiros.
 */
 // ?
+    showTeamPosition(2)
+    showTeamPosition(3)
+    showTeamPosition(4)
+    showTeamPosition(5)
+
+    teams.push('Nova Iguaçu')
+    showTeamPosition(6)
 
 /*
 Mostre os números de 20 a 30 no console (inclusive o 30), usando a estrutura de
 repetição "while".
 */
 // ?
+    let i = 20
+    while(i<=30){
+        console.log(i)
+        i++
+    }
+
 
 /*
 Crie uma função chamada `convertToHex`, com as seguintes características:
@@ -60,6 +82,29 @@ Crie uma função chamada `convertToHex`, com as seguintes características:
 */
 // ?
 
+    function convertToHex(cor){
+        let hex;
+        switch (cor) {
+            case 'vermelho': 
+                hex += '#555';
+                break;
+            case 'azul': 
+                hex += '#444';
+                break;
+            case 'verde': 
+                hex += '#333';
+                break;
+            case 'amarelo': 
+                hex += '#222';
+                break;
+            case 'rosa': 
+                hex += '#111';
+                break;
+        }
+        console.log(hex)
+    }
+
+    convertToHex('amarelo')
 /*
 Tente mostrar o hexadecimal de 8 cores diferentes usando a função criada acima.
 */
