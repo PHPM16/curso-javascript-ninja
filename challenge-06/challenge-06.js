@@ -16,7 +16,7 @@ desafio.
 */
 // ?
 
-let teams = [ ,'Flamengo', 'Fluminense', 'Botafogo', 'Vasco', 'Boavista']
+let teams = ['Flamengo', 'Fluminense', 'Botafogo', 'Vasco', 'Boavista']
 
 console.log( 'Times que estão participando do campeonato:', teams );
 
@@ -39,7 +39,12 @@ Crie uma função chamada `showTeamPosition` com as seguintes características:
 */
 // ?
     let showTeamPosition = (pos) =>{
-        console.log(`O time que está em ${pos}º lugar é o ${teams[pos]}`)
+        if(pos === undefined || pos < 1 || pos > pos.length){
+            console.log("Não temos a informação do time que está nessa posição.")
+        }
+        else{
+        console.log(`O time que está em ${pos}º lugar é o ${teams[pos-1]}`)
+        }    
     }
 
     showTeamPosition(1)
@@ -55,6 +60,7 @@ função acima. Entre esses 4, adicione 1 que não esteja entre os 5 primeiros.
 
     teams.push('Nova Iguaçu')
     showTeamPosition(6)
+    showTeamPosition()
 
 /*
 Mostre os números de 20 a 30 no console (inclusive o 30), usando a estrutura de
@@ -83,7 +89,7 @@ Crie uma função chamada `convertToHex`, com as seguintes características:
 // ?
 
     function convertToHex(cor){
-        let hex;
+        let hex = '';
         switch (cor) {
             case 'vermelho': 
                 hex += '#555';
