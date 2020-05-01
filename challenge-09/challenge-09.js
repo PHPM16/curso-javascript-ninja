@@ -10,11 +10,15 @@ dentro de `console.log` que estão retornando `undefined` retornem o valor
 correto da variável ou função chamada.
 */
 function myFunction() {
+
+    var number1 = 10;
+    var number2 = 20;
+    
     console.log( 'Na função `myFunction`, o primeiro número é', number1 );
     console.log( 'Na função `myFunction`, o segundo número é', number2 );
-    var number1 = 10;
+
     return number1 + number2;
-    var number2 = 20;
+    
 }
 myFunction();
 
@@ -22,12 +26,12 @@ myFunction();
     myFunction2();
 */
 function myFunction2() {
-    console.log( 'A soma de 10 e 20 é igual a', sum ? sum() : undefined );
     var sum = function sum() {
         return number1 + number2;
     };
     var number1 = 10;
     var number2 = 20;
+    console.log( 'A soma de 10 e 20 é igual a', sum ? sum() : undefined );
     return sum();
 }
 myFunction2();
@@ -61,6 +65,14 @@ por parâmetro, INVOCADA, e passando a ela por parâmetro os dois valores
 que foram passadas para a primeira função `calculator`.
 */
 // ?
+
+function calculator(num1, num2){
+    return function(callback){
+        callback = function(){
+            return calculator()
+        }
+    }
+}
 
 /*
 Declare uma variável chamada `sum`, e atribua a ela a função `calculator`,
