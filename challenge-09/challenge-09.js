@@ -2,7 +2,7 @@
 Crie uma IIFE que envolva todo o código desse arquivo. Faça também a
 indentação correta do código, para ficar dentro da IIFE.
 */
-
+(function(){
 /*
 Analise as funções abaixo (`myFunction`, `myFunction2` e `myFunction3`, e
 ajuste o posicionamento das variáveis e funções internas, para que os códigos
@@ -40,10 +40,10 @@ myFunction2();
     myFunction3();
 */
 function myFunction3() {
-    console.log( 'A soma de 40 e 50 é igual a', sum() );
-    var number2 = 50;
-    console.log( 'Na função myFunction3, number1 é igual a', number1 );
     var number1 = 40;
+    var number2 = 50;
+    console.log( 'A soma de 40 e 50 é igual a', sum() );
+    console.log( 'Na função myFunction3, number1 é igual a', number1 );
     return sum();
     function sum() {
         return number1 + number2;
@@ -65,21 +65,16 @@ por parâmetro, INVOCADA, e passando a ela por parâmetro os dois valores
 que foram passadas para a primeira função `calculator`.
 */
 // ?
-
 function calculator(num1, num2){
     return function(callback){
-        callback = function(){
-            return calculator()
-        }
-    }
+        return callback(num1, num2)
+    };
 }
-
 /*
 Declare uma variável chamada `sum`, e atribua a ela a função `calculator`,
 passando dois números por parâmetro.
 */
-// ?
-
+let sum = calculator(10, 2)
 /*
 Sabemos que `sum` agora tem uma função atribuída a ela, que é o retorno de
 `calculator`. E essa função espera um parâmetro `callback`. O `callback`
@@ -89,8 +84,7 @@ para a chamada à `calculator` acima.
 uma função anônima que irá retornar a soma dos dois números que essa função
 anônima tem como seus argumentos.
 */
-console.log( 'O resultado da soma é:' );
-// ?
+console.log( `O resultado da soma é: ${sum(function(num1, num2){ return num1+num2})}` );
 
 /*
 Agora declare outra variáveis chamadas `subtraction`, `multiplication`,
@@ -106,14 +100,16 @@ divisão e módulo (resto de divisão), conforme a função utilizada.
 As suas respostas devem estar abaixo dos `console.log` referentes à cada
 chamada.
 */
-console.log( 'O resultado da subtração é:' );
+let sub = calculator(10,2)
+console.log( `O resultado da subtração é: ${sub(function(num1,num2){return num1-num2})}` );
 // ?
-
-console.log( 'O resultado da multiplicação é:' );
+let mult = calculator(10,2)
+console.log( `O resultado da multiplicação é: ${mult(function(num1, num2){return num1*num2})}` );
 // ?
-
-console.log( 'O resultado da divisão é:' );
+let div = calculator(10,2)
+console.log( `O resultado da divisão é: ${div(function(num1, num2){return num1/num2})}` );
 // ?
-
-console.log( 'O resto da divisão é:' );
+let rest = calculator(10,2)
+console.log( `O resto da divisão é: ${rest(function(num1, num2){return num1%num2})}` );
 // ?
+}())
