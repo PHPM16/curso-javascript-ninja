@@ -9,9 +9,9 @@ Qual loop você deve usar para que essa mensagem seja mostrada no console?
 */
 // ?
 let once = false;
-do {
-   console.log('Entrou ao menos uma vez!')
-} while(once)
+while(once === false){
+   // console.log('Entrou ao menos uma vez!')
+}
 
 /*
 Crie um objeto chamado `person`, que receba as seguintes propriedades:
@@ -37,12 +37,9 @@ Após o loop, mostre a frase:
 */
 // ?
 function showObjectProperties(){
-    let counter = 0;
     for(let prop in person){
-        console.log(`The ${prop} of person is ${person[prop]}`)
-        counter++
+        console.log(`The ${prop} of person is ${pro.value}`)
     }
-    console.log(`The person has ${counter} properties`)
 }
     showObjectProperties()
 /*
@@ -54,11 +51,6 @@ Após a função, mostrar a mensagem no console:
 */
 // ?
 
-function moreThan(age){
-   return person.age > age
-}
-console.log(`The person has more than 25 year old? ${moreThan(25)}`)
-
 /*
 Faça um loop de 0 a 20, que adicione cada número como um item de um
 array chamado `numbers`. Se o contador for maior que 10, saia do loop.
@@ -66,14 +58,6 @@ Mostre no console os números no array.
 */
 console.log( 'De 0 a 10:' );
 // ?
-let numbers = []
-for(let i = 0; i < 21; i++){
-    if(i > 10){
-        break
-    }
-    numbers.push(i)
-}
-console.log(numbers)
 
 /*
 Faça outro loop de 0 a 20, que adicione a um array chamado `numbers` (já
@@ -82,10 +66,5 @@ esses. Se o número for ímpar, pular para o próximo número.
 Mostrar no console os números do array.
 */
 console.log( 'Pares de 0 a 20:' );
-let arr2 = []
-for(let i = 0; i < 21; i++){
-    i%2 === 0? arr2.push(i): null
-}
-console.log(arr2)
 // ?
 }())

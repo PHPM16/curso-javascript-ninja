@@ -2,7 +2,7 @@
 Crie uma IIFE que envolva todo esse arquivo (inclusive esse comentário),
 e faça a indentação correta.
 */
-
+(function(){
 /*
 Sem alterar os códigos nos `console.log` abaixo, faça com que o retorno
 deles seja "true", usando os Wrapper Objects como "conversores" nos valores
@@ -10,9 +10,10 @@ das variáveis. Analise o que está sendo impresso no console para saber como
 resolver o problema corretamente.
 */
 var five = '5';
+five = Number(five)
 console.log( five + ' é número?', typeof five === 'number' );
 
-var concat = 10 + 10;
+var concat = String(10) + String(10);
 console.log( '"' + concat + '" é uma string? E é igual a "1010"?', typeof concat === 'string' );
 
 /*
@@ -25,6 +26,13 @@ função receberá dois parâmetros e retornará a operação referente à sua
 propriedade, usando os valores passados por parâmetro.
 */
 // ?
+let operation = {
+    '+':function(a, b){return a+b},
+    '-':function(a, b){return a-b},
+    '*':function(a, b){return a*b},
+    '/':function(a, b){return a/b},
+    '%':function(a, b){return a%b}
+};
 
 /*
 Crie uma função chamada `isOperatorValid`, que receberá um operador por
@@ -37,7 +45,16 @@ Caso contrário, "false".
 - O desafio é fazer o retorno sem usar "if" ou "switch".
 */
 // ?
+function isOperatorValid(operator){
+    return operation[operator] !== undefined 
+}
 
+console.log(isOperatorValid('%'))
+console.log(isOperatorValid('*'))
+console.log(isOperatorValid('/'))
+console.log(isOperatorValid('+'))
+console.log(isOperatorValid('-'))
+console.log(!!isOperatorValid('$'))
 /*
 Agora vamos criar a calculadora.
 - Crie uma função chamada `calculator`, que receberá como parâmetro um
@@ -52,6 +69,16 @@ os dois parâmetros da função de retorno de "calculator".
 */
 // ?
 
+function calculator(operator){
+    if(!isOperatorValid(operator)){return false}
+    return function(num1, num2){
+       if(typeof num1 !== 'number' || typeof num2 !== 'number'){return false}
+        return operation[operator](num1, num2)
+
+    }
+
+}
+
 /*
 Crie uma função chamada "showOperationMessage" que recebe três parâmetros:
 - o operador, o primeiro número e o segundo número. O retorno da função
@@ -60,6 +87,10 @@ deve ser a frase:
 Essa função mostrará a mensagem da operação que criaremos mais abaixo.
 */
 // ?
+function showOperationMessage(NUMBER1, OPERATOR, NUMBER2){
+    return `A operação ${NUMBER1} ${OPERATOR} ${NUMBER2}`
+}
+console.log(showOperationMessage(1, '+', 2))
 
 /*
 Crie uma função chamada "showErrorMessage" que recebe um parâmetro: o
@@ -68,7 +99,9 @@ Essa função deverá retornar a frase:
 'Operação "[OPERATOR]" não permitida!'
 */
 // ?
-
+function showErrorMessage(operator){
+     return `Operação ${operator} não permitida!`
+}
 /*
 Nossa calculadora está pronta! Agora vamos testá-la:
 PASSO 1:
@@ -76,7 +109,9 @@ PASSO 1:
 "operationSignal", sem valor por enquanto.
 */
 // ?
-
+let number1;
+let number2;
+let operationSignal;
 /*
 PASSO 2:
 Atribua à variável operationSignal o operador de soma, e declare uma
@@ -84,7 +119,9 @@ variável chamada "sum", que receba a função "calculator", passando por
 parâmetro a variável que recebeu o sinal da operação.
 */
 // ?
+operationSignal = '+'
 
+let sum = calculator(operationSignal)
 /*
 PASSO 3:
 "sum" agora é uma função, e, se o sinal correto não foi passado para a
@@ -98,6 +135,12 @@ parâmetros para o método "log" de "console":
 - Se "sum" for "false", mostrar no console a mensagem de erro.
 */
 // ?
+if(sum){
+    number1 = 10;
+    number2 = 20;
+
+    console.log(showOperationMessage(number1,operationSignal, number2), sum(number1, number2))
+}
 
 /*
 Repita desde o "PASSO 2" com as operações de subtração, multiplicação,
@@ -111,3 +154,4 @@ Repita o PASSO 2 novamente, mas passando um operador inválido, para ver se
 a mensagem de erro será mostrada no console.
 */
 // ?
+}())
